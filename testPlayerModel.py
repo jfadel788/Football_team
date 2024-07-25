@@ -2,7 +2,7 @@ import unittest
 from player_data import input_player_data
 from selectTeam import select_team,random_select_players
 from xx import format_table
-
+from reports import status_report,sort_by_apt,find_highest_apt,find_lowest_avg
 
 class TestPlayerModule(unittest.TestCase):
     
@@ -59,6 +59,33 @@ class TestPlayerModule(unittest.TestCase):
         print("\nRandomly Selected Players:")
         print(format_table(random_players))
         self.assertEqual(len(random_players), 5)
+    def test_status_report(self):
+        report = status_report(self.players)
+        print("\nStatus Report:")
+        print(report)
+        self.assertEqual(report['attacker'], 8)
+        self.assertEqual(report['midfielder'], 8)
+        self.assertEqual(report['defender'], 3)
+
+    def test_sort_by_apt(self):
+        sorted_players = sort_by_apt(self.players)
+        print("\nPlayers Sorted by APT:")
+        print(format_table(sorted_players))
+        self.assertEqual(sorted_players[0].first_name, "Ali")
+        self.assertEqual(sorted_players[-1].first_name, "Alexander")
+
+    def test_find_highest_apt(self):
+        highest_apt_player = find_highest_apt(self.players)
+        print("\nPlayer with Highest APT:")
+        print(format_table([highest_apt_player]))
+        self.assertEqual(highest_apt_player.first_name, "Ali")
+
+    def test_find_lowest_avg(self):
+        lowest_avg_player = find_lowest_avg(self.players)
+        print("\nPlayer with Lowest AVG:")
+        print(format_table([lowest_avg_player]))
+        self.assertEqual(lowest_avg_player.first_name, "Alexander")
+
 
 if __name__ == "__main__":
     unittest.main()
