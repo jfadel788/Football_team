@@ -14,6 +14,7 @@ class TestPlayer(unittest.TestCase):
         # Test if the player is initialized correctly
         self.assertEqual(self.player.first_name, self.player_data[0])
         self.assertEqual(self.player.last_name, self.player_data[1])
+        self.assertEqual(self.player.avg,(self.player_data[2]+self.player_data[3])/2)
         self.assertEqual(self.player.apt, self.player_data[2])
         self.assertEqual(self.player.set, self.player_data[3])
         self.assertEqual(self.player.position, self.player_data[4])
