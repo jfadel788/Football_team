@@ -1,11 +1,10 @@
 import unittest
 from player_data import input_player_data
 from selectTeam import select_team,random_select_players
-from xx import format_table
+from format import format_table
 from reports import status_report,sort_by_apt,find_highest_apt,find_lowest_avg
 
 class TestPlayerModule(unittest.TestCase):
-    
     def setUp(self):
         # Initialize player data
         self.players_data = [
