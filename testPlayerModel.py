@@ -27,8 +27,8 @@ class TestPlayerModule(unittest.TestCase):
             ("Arlo", "Gilchrist", 50, 65, "attacker", "England"),
         ]
         self.players = input_player_data(self.players_data)
-        for player in self.players:
-            print(player)
+        
+            
     
     def test_player_data_content(self):
         # Test if the content of the Player objects matches the input data
