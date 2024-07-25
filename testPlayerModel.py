@@ -1,7 +1,8 @@
 import unittest
 from player_data import input_player_data
-from selectTeam import select_team
+from selectTeam import select_team,random_select_players
 from xx import format_table
+
 
 class TestPlayerModule(unittest.TestCase):
     
@@ -53,6 +54,11 @@ class TestPlayerModule(unittest.TestCase):
         self.assertEqual(num_defenders, 2)
         self.assertEqual(num_midfielders, 3)
         self.assertEqual(num_attackers, 5)
+    def test_random_select_players(self):
+        random_players = random_select_players(self.players, 5)
+        print("\nRandomly Selected Players:")
+        print(format_table(random_players))
+        self.assertEqual(len(random_players), 5)
 
 if __name__ == "__main__":
     unittest.main()
