@@ -12,3 +12,5 @@ def select_team(players, num_defenders, num_midfielders, num_attackers):
         if len(defenders) + len(midfielders) + len(attackers) == 10:
             break
     return defenders + midfielders + attackers
+
+

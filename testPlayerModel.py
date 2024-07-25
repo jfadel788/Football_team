@@ -1,5 +1,7 @@
 import unittest
 from player_data import input_player_data
+from selectTeam import select_team
+from xx import format_table
 
 class TestPlayerModule(unittest.TestCase):
     
@@ -39,6 +41,18 @@ class TestPlayerModule(unittest.TestCase):
             self.assertEqual(player.set, self.players_data[i][3])
             self.assertEqual(player.position, self.players_data[i][4])
             self.assertEqual(player.national_association, self.players_data[i][5])
+
+    def test_select_team(self):
+        selected_team = select_team(self.players, 2, 3, 5)
+        print("\nSelected Team:")
+        print(format_table(selected_team))
+        self.assertEqual(len(selected_team), 10)
+        num_defenders = len([player for player in selected_team if player.position == 'defender'])
+        num_midfielders = len([player for player in selected_team if player.position == 'midfielder'])
+        num_attackers = len([player for player in selected_team if player.position == 'attacker'])
+        self.assertEqual(num_defenders, 2)
+        self.assertEqual(num_midfielders, 3)
+        self.assertEqual(num_attackers, 5)
 
 if __name__ == "__main__":
     unittest.main()
