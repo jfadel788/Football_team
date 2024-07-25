@@ -13,4 +13,6 @@ def select_team(players, num_defenders, num_midfielders, num_attackers):
             break
     return defenders + midfielders + attackers
 
-
+def random_select_players(players, num_players):
+    random.shuffle(players)
+    return players[:num_players]
