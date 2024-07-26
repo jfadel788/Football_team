@@ -1,14 +1,18 @@
 import unittest
 from player_data import input_player_data
-from selectTeam import select_team,random_select_players
+from selectTeam import select_team, random_select_players
 from format import format_table
-from reports import status_report,sort_by_apt,find_highest_apt,find_lowest_avg
+from reports import status_report, sort_by_apt, find_highest_apt, find_lowest_avg
+from validate import validate_and_correct_players_data
 
 class TestPlayerModule(unittest.TestCase):
-    def setUp(self):
+    players = []
+
+    @classmethod
+    def setUpClass(cls):
         # Initialize player data
-        self.players_data = [
-            ("Daniel", "Scott", 79, 92, "attacker", "Scotland"),
+        cls.players_data = [
+            ("Daniel", "Scott", 79, "ss88", "attacker", "Scotland"),
             ("Ali", "Aslam", 98, 94, "midfielder", "Northern Ireland"),
             ("Oliver", "Barker", 89, 95, "defender", "England"),
             ("Jordan", "Robinson", 45, 89, "attacker", "Wales"),
@@ -28,19 +32,19 @@ class TestPlayerModule(unittest.TestCase):
             ("Alexander", "Daly", 43, 67, "midfielder", "England"),
             ("Arlo", "Gilchrist", 50, 65, "attacker", "England"),
         ]
-        self.players = input_player_data(self.players_data)
-        
-            
-    
+
+        cls.correct_data = validate_and_correct_players_data(cls.players_data)
+        cls.players = input_player_data(cls.correct_data)
+
     def test_player_data_content(self):
         # Test if the content of the Player objects matches the input data
         for i, player in enumerate(self.players):
-            self.assertEqual(player.first_name, self.players_data[i][0])
-            self.assertEqual(player.last_name, self.players_data[i][1])
-            self.assertEqual(player.apt, self.players_data[i][2])
-            self.assertEqual(player.set, self.players_data[i][3])
-            self.assertEqual(player.position, self.players_data[i][4])
-            self.assertEqual(player.national_association, self.players_data[i][5])
+            self.assertEqual(player.first_name, self.correct_data[i][0])
+            self.assertEqual(player.last_name, self.correct_data[i][1])
+            self.assertEqual(player.apt, self.correct_data[i][2])
+            self.assertEqual(player.set, self.correct_data[i][3])
+            self.assertEqual(player.position, self.correct_data[i][4])
+            self.assertEqual(player.national_association, self.correct_data[i][5])
 
     def test_select_team(self):
         selected_team = select_team(self.players, 2, 3, 5)
@@ -53,11 +57,13 @@ class TestPlayerModule(unittest.TestCase):
         self.assertEqual(num_defenders, 2)
         self.assertEqual(num_midfielders, 3)
         self.assertEqual(num_attackers, 5)
+
     def test_random_select_players(self):
         random_players = random_select_players(self.players, 5)
         print("\nRandomly Selected Players:")
         print(format_table(random_players))
         self.assertEqual(len(random_players), 5)
+
     def test_status_report(self):
         report = status_report(self.players)
         print("\nStatus Report:")
@@ -84,7 +90,6 @@ class TestPlayerModule(unittest.TestCase):
         print("\nPlayer with Lowest AVG:")
         print(format_table([lowest_avg_player]))
         self.assertEqual(lowest_avg_player.first_name, "Alexander")
-
 
 if __name__ == "__main__":
     unittest.main()
