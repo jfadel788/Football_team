@@ -10,3 +10,12 @@ class Player:
 
     def __repr__(self):
         return f"{self.first_name} {self.last_name}, APT: {self.apt}, SET: {self.set}, AVG: {self.avg}, Position: {self.position}, National Association: {self.national_association}"
+    def to_dict(self):
+        return {
+            'first_name': self.first_name,
+            'last_name': self.last_name,
+            'apt': self.apt,
+            'set': self.set,
+            'position': self.position,
+            'national_association': self.national_association
+        }
