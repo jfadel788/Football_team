@@ -16,6 +16,7 @@ class Player:
             'last_name': self.last_name,
             'apt': self.apt,
             'set': self.set,
+            "avg":self.avg,
             'position': self.position,
             'national_association': self.national_association
         }
