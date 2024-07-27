@@ -6,6 +6,17 @@ from player_data import input_player_data
 from selectTeam import select_team,random_select_players
 
 app = Flask(__name__)
+@app.route("/input_data", methods=["POST"])
+def api_input_data():
+   
+        data = request.get_json()  
+        players_data = data.get("players", [])  
+        players = input_player_data(players_data)  
+        players_dict = [player.to_dict() for player in players]
+        return jsonify(players_dict)
+  
+
+    
 ##Create API for status Report
 @app.route('/status_report', methods=['POST'])
 def api_status_report():
