@@ -12,7 +12,7 @@ class TestPlayerModule(unittest.TestCase):
     def setUpClass(cls):
         # Initialize player data
         cls.players_data = [
-            ("Daniel", "Scott", 79, "ss88", "attacker", "Scotland"),
+            ("Daniel", "Scott", 79, "88", "attacker", "Scotland"),
             ("Ali", "Aslam", 98, 94, "midfielder", "Northern Ireland"),
             ("Oliver", "Barker", 89, 95, "defender", "England"),
             ("Jordan", "Robinson", 45, 89, "attacker", "Wales"),
