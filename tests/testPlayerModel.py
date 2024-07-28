@@ -1,9 +1,12 @@
 import unittest
-from player_data import input_player_data
-from selectTeam import select_team, random_select_players
-from format import format_table
-from reports import status_report, sort_by_apt, find_highest_apt, find_lowest_avg
-from validate import validate_and_correct_players_data
+import sys
+sys.path.append('/Users/User/Desktop/football/')
+
+from functions.player_data import input_player_data
+from functions.selectTeam import select_team, random_select_players
+from functions.format import format_table
+from functions.reports import status_report, sort_by_apt, find_highest_apt, find_lowest_avg
+from functions.validate import validate_and_correct_players_data
 
 class TestPlayerModule(unittest.TestCase):
     players = []

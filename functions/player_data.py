@@ -1,4 +1,7 @@
-from classes import Player
+import sys
+sys.path.append('/Users/User/Desktop/football/')
+from classes.classes import Player
+
 
 def input_player_data(players_data):
     players = []

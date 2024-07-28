@@ -1,9 +1,12 @@
 from flask import Flask, jsonify, request
 from typing import List
-from reports import status_report,sort_by_apt,find_highest_apt,find_lowest_avg
-from classes import Player
-from player_data import input_player_data
-from selectTeam import select_team,random_select_players
+import sys
+sys.path.append('/Users/User/Desktop/football/')
+
+from functions.reports import status_report,sort_by_apt,find_highest_apt,find_lowest_avg
+from classes.classes import Player
+from functions.player_data import input_player_data
+from functions.selectTeam import select_team,random_select_players
 
 app = Flask(__name__)
 @app.route("/input_data", methods=["POST"])

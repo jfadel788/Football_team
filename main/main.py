@@ -1,8 +1,10 @@
-from validate import validate_and_correct_players_data
-from player_data import input_player_data
-from selectTeam import select_team,random_select_players
-from format import format_table
-from reports import status_report,find_lowest_avg,find_highest_apt,sort_by_apt
+import sys
+sys.path.append('/Users/User/Desktop/football/')
+from functions.validate import validate_and_correct_players_data
+from functions.player_data import input_player_data
+from functions.selectTeam import select_team,random_select_players
+from functions.format import format_table
+from functions.reports import status_report,find_lowest_avg,find_highest_apt,sort_by_apt
 def main():
     
     user_data=[]

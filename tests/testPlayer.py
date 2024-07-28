@@ -1,7 +1,9 @@
 
 import unittest
-
+import sys
+sys.path.append('/Users/User/Desktop/football/classes')
 from classes import Player
+
 
 class TestPlayer(unittest.TestCase):
 
