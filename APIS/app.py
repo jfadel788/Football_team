@@ -17,9 +17,6 @@ def api_input_data():
         players = input_player_data(players_data)  
         players_dict = [player.to_dict() for player in players]
         return jsonify(players_dict)
-  
-
-    
 ##Create API for status Report
 @app.route('/status_report', methods=['POST'])
 def api_status_report():
